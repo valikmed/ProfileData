@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Abstractions\" />
+    <None Remove="Mapping\" />
+    <None Remove="Validators\" />
+    <None Remove="DTO\" />
+    <None Remove="Entities\" />
+    <None Remove="Abstractions\Repositories\" />
+    <None Remove="Abstractions\Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
+    <Folder Include="Mapping\" />
+    <Folder Include="Validators\" />
+    <Folder Include="DTO\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Abstractions\Repositories\" />
+    <Folder Include="Abstractions\Services\" />
+  </ItemGroup>
+</Project>
