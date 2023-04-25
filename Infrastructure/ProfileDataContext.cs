@@ -9,7 +9,7 @@ namespace Application
 {
     public class ProfileDataContext : DbContext
     {
-        private const string connectionString = @"server=localhost; database=UserProfile; Integrated Security=true;";
+        private const string connectionString = @"server=localhost; database=ProfileData; Integrated Security=true;";
 
 
         public DbSet<User> Users { get; set; }
@@ -25,39 +25,39 @@ namespace Application
         {
             optionsBuilder.UseSqlServer(connectionString);
         }
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Role>()
-        //              .Property(b => b.RoleName)
-        //              .IsRequired();
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Role>()
+                      .Property(b => b.RoleName)
+                      .IsRequired();
 
-        //    modelBuilder.Entity<User>()
-        //           .Property(b => b.FirstName)
-        //           .IsRequired();
-        //    modelBuilder.Entity<User>()
-        //           .Property(b => b.LastName)
-        //           .IsRequired();
+            modelBuilder.Entity<User>()
+                   .Property(b => b.FirstName)
+                   .IsRequired();
+            modelBuilder.Entity<User>()
+                   .Property(b => b.LastName)
+                   .IsRequired();
 
 
 
-        //    modelBuilder.Entity<Role>().HasData(
-        //        new Role
-        //        {
-        //            ID = 1,
-        //            RoleName = "C-Level"
-        //        },
-        //        new Role
-        //        {
-        //            ID = 2,
-        //            RoleName = "Manager"
-        //        },
-        //        new Role
-        //        {
-        //            ID = 3,
-        //            RoleName = "Worker"
-        //        }
-        //    );
+            modelBuilder.Entity<Role>().HasData(
+                new Role
+                {
+                    ID = 1,
+                    RoleName = "C-Level"
+                },
+                new Role
+                {
+                    ID = 2,
+                    RoleName = "Manager"
+                },
+                new Role
+                {
+                    ID = 3,
+                    RoleName = "Worker"
+                }
+            );
 
-        //}
+        }
     }
 }

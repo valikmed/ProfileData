@@ -1,8 +1,10 @@
 ﻿using System;
+using Domain.Entities;
+
 namespace Domain.Abstractions.Repositories
 {
-	public interface IUserRepository
-	{
+	public interface IUserRepository: IRepository<User>
+    {
 	}
 }
 

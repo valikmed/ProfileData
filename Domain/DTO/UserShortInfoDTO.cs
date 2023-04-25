@@ -1,11 +1,14 @@
 ﻿using System;
 namespace Domain.DTO
 {
-	public class UserShortInfoDTO
-	{
-		public UserShortInfoDTO()
-		{
-		}
-	}
+    public class UserShortInfoDTO
+    {
+        public int ID { get; set; }
+        public string FullName { get; set; }
+        public int Age { get; set; }
+        public int RoleID { get; set; }
+
+        public string Role { get; set; }
+    }
 }
 

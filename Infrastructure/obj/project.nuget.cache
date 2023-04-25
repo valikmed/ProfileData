@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "9SxsLFd2gQ7PfOhZKtWRUQ2Oa0Dvg0a6NFb4icijkZ6pKgpuXN3aP9ybjWcI0r41AnZInxL8m7DViL4l+jUPDw==",
+  "dgSpecHash": "uUEI5Rw4eP0qvXHRXRssNYRb6DnDWgfjL2fw/YcH6y57TSVG1tOnX/05XexglNBmjI9TFAXm8cuS29TQoBevZw==",
   "success": true,
   "projectFilePath": "/Users/elysium/Test/src/Infrastructure/Infrastructure.csproj",
   "expectedPackageFiles": [
+    "/Users/elysium/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/Users/elysium/.nuget/packages/azure.core/1.24.0/azure.core.1.24.0.nupkg.sha512",
     "/Users/elysium/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",
+    "/Users/elysium/.nuget/packages/fluentvalidation/11.5.2/fluentvalidation.11.5.2.nupkg.sha512",
     "/Users/elysium/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/elysium/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "/Users/elysium/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
+    "/Users/elysium/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/elysium/.nuget/packages/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg.sha512",
     "/Users/elysium/.nuget/packages/microsoft.data.sqlclient.sni.runtime/5.0.1/microsoft.data.sqlclient.sni.runtime.5.0.1.nupkg.sha512",
     "/Users/elysium/.nuget/packages/microsoft.entityframeworkcore/7.0.5/microsoft.entityframeworkcore.7.0.5.nupkg.sha512",

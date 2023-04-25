@@ -1,8 +1,10 @@
 ﻿using System;
+using Domain.Entities;
+
 namespace Domain.Abstractions.Repositories
 {
-	public interface IRoleRepository
-	{
+	public interface IRoleRepository: IRepository<Role>
+    {
 	}
 }
 

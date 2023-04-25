@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "013I8AOSP0rc3DwAVdFZm5FKRiQOx7paXOzhElGZwhf5dctdsdAVLjZLeo6tqXWbRo/cfspfzMpCN9krhhoXKQ==",
+  "dgSpecHash": "29+xYxWfWxZMArlUybKCBISCdOEZBNoDzvnp+FAw1C9sOazQi3/a1ZjxAYd65JGahAo/vGOgF3eBF/7cQqYndQ==",
   "success": true,
   "projectFilePath": "/Users/elysium/Test/src/Domain/Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/elysium/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/Users/elysium/.nuget/packages/fluentvalidation/11.5.2/fluentvalidation.11.5.2.nupkg.sha512",
+    "/Users/elysium/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

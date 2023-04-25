@@ -1,13 +1,30 @@
 ﻿using System;
-using Application;
-using Domain.Abstractions.Services;
-using Microsoft.AspNetCore.Http.Features;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+//using UserProfileApp.Core.Abstractions;
+//using UserProfileApp.Core.Abstractions.Services;
+//using UserProfileApp.Core.Mapping;
+//using UserProfileApp.DAL;
+//using UserProfileApp.Services;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Http.Features;
+using Domain.Abstractions;
+using Domain.Abstractions.Services;
+using Domain.Mapping;
+using Infrastructure;
 using ProfileData.Domain.Abstractions.Services;
 
-namespace ProfileData
+namespace UserProfileApp
 {
     public class Startup
     {
@@ -18,54 +35,54 @@ namespace ProfileData
         public IConfiguration Configuration { get; }
         readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         // This method gets called by the runtime. Use this method to add services to the container.
-        //public void ConfigureServices(IServiceCollection services)
-        //{
-        //    services.AddControllers();
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllers();
 
 
-        //    services.AddCors(options =>
-        //    {
-        //        options.AddPolicy(MyAllowSpecificOrigins,
-        //        builder =>
-        //        {
-        //            builder.WithOrigins("http://localhost:4200",
-        //                                "http://www.contoso.com")
-        //                        .AllowAnyHeader()
-        //                        .AllowAnyMethod();
-        //        });
-        //    });
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200",
+                                        "http://www.contoso.com")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
+                });
+            });
 
-        //    services.Configure<FormOptions>(o => {
-        //        o.ValueLengthLimit = int.MaxValue;
-        //        o.MultipartBodyLengthLimit = int.MaxValue;
-        //        o.MemoryBufferThreshold = int.MaxValue;
-        //    });
-        //    services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-        //    services.AddSwaggerGen(c =>
-        //    {
-        //        c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
-        //    });
+            services.Configure<FormOptions>(o => {
+                o.ValueLengthLimit = int.MaxValue;
+                o.MultipartBodyLengthLimit = int.MaxValue;
+                o.MemoryBufferThreshold = int.MaxValue;
+            });
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
 
-        //    var mappingConfig = new MapperConfiguration(mc =>
-        //    {
-        //        mc.AddProfile(new MappingProfile());
-        //    });
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
 
 
-        //    IMapper mapper = mappingConfig.CreateMapper();
-        //    services.AddSingleton(mapper);
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
-        //    var connection = Configuration.GetConnectionString("DatabaseConection");
-        //    services.AddDbContext<ProfileDataContext>(e => e.UseSqlServer(connection));
+            var connection = Configuration.GetConnectionString("DatabaseConection");
+            services.AddDbContext<ProfileDataContext>(e => e.UseSqlServer(connection));
 
-        //    services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserService, UserService>();
 
-        //    services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IRoleService, RoleService>();
 
-        //    services.AddScoped<IAvatarService, AvatarService>();
+            services.AddScoped<IAvatarService, AvatarService>();
 
-        //    services.AddScoped<IUnitOfWork, UnitOfWork>();
-        //}
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -99,5 +116,3 @@ namespace ProfileData
         }
     }
 }
-
-
