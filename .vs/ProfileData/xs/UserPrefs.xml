@@ -4,57 +4,41 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Application/AvatarService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ProfileData/Startup.cs">
     <Files>
-      <File FileName="ProfileData/Startup.cs" Line="76" Column="41" />
-      <File FileName="Domain/Entities/User.cs" Line="44" Column="6" />
-      <File FileName="Domain/Entities/Role.cs" Line="14" Column="6" />
+      <File FileName="ProfileData/Startup.cs" Line="74" Column="1" />
       <File FileName="Domain/Abstractions/Services/IUserService.cs" Line="7" Column="40" />
+      <File FileName="Domain/Abstractions/Services/IRoleService.cs" Line="7" Column="38" />
+      <File FileName="Domain/Entities/User.cs" />
+      <File FileName="Domain/Entities/Role.cs" />
       <File FileName="Domain/Abstractions/IUnityOfWork.cs" Line="6" Column="22" />
-      <File FileName="Domain/DTO/UserFullInfoDTO.cs" Line="9" Column="1" />
-      <File FileName="Domain/DTO/UserShortInfoDTO.cs" Line="12" Column="6" />
-      <File FileName="Domain/Abstractions/Services/IRoleService.cs" Line="7" Column="49" />
-      <File FileName="Infrastructure/Repositories/RoleRepository.cs" Line="9" Column="49" />
-      <File FileName="Domain/Abstractions/Repositories/IRoleRepository.cs" Line="10" Column="1" />
-      <File FileName="Domain/Abstractions/Repositories/IUserRepository.cs" Line="6" Column="53" />
-      <File FileName="Domain/DTO/RoleDTO.cs" Line="9" Column="4" />
-      <File FileName="Domain/Mapping/MappingProfile.cs" Line="24" Column="48" />
-      <File FileName="Domain/Validators/UserValidator.cs" Line="21" Column="55" />
-      <File FileName="Application/UserService.cs" Line="1" Column="1" />
-      <File FileName="Application/RoleService.cs" Line="1" Column="1" />
-      <File FileName="Application/AvatarService.cs" Line="15" Column="16" />
-      <File FileName="Infrastructure/Repositories/UserRepository.cs" Line="10" Column="49" />
-      <File FileName="Infrastructure/ProfileDataContext.cs" Line="12" Column="89" />
+      <File FileName="Domain/DTO/UserFullInfoDTO.cs" />
+      <File FileName="Domain/DTO/UserShortInfoDTO.cs" />
+      <File FileName="Infrastructure/Repositories/RoleRepository.cs" />
+      <File FileName="Domain/Abstractions/Repositories/IRoleRepository.cs" />
+      <File FileName="Domain/Abstractions/Repositories/IUserRepository.cs" />
+      <File FileName="Domain/DTO/RoleDTO.cs" />
+      <File FileName="Domain/Mapping/MappingProfile.cs" />
+      <File FileName="Domain/Validators/UserValidator.cs" />
+      <File FileName="Application/UserService.cs" Line="19" Column="22" />
+      <File FileName="Application/RoleService.cs" Line="11" Column="22" />
+      <File FileName="Infrastructure/Repositories/UserRepository.cs" />
+      <File FileName="Infrastructure/ProfileDataContext.cs" Line="6" Column="36" />
       <File FileName="ProfileData/appsettings.json" Line="3" Column="43" />
-      <File FileName="ProfileData/Program.cs" Line="1" Column="1" />
+      <File FileName="ProfileData/Program.cs" Line="21" Column="36" />
+      <File FileName="Application/AvatarService.cs" Line="12" Column="33" />
+      <File FileName="Domain/Abstractions/Services/IService.cs" Line="10" Column="22" />
+      <File FileName="ProfileData/Controllers/AvatarController.cs" Line="11" Column="1" />
+      <File FileName="ProfileData/Controllers/RoleController.cs" Line="10" Column="1" />
+      <File FileName="ProfileData/Controllers/UserController.cs" Line="14" Column="20" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ProfileData" expanded="True">
-            <Node name="Application" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="ProjectDependencies" expanded="True" />
-              </Node>
-              <Node name="AvatarService.cs" selected="True" />
-            </Node>
-            <Node name="Domain" expanded="True">
-              <Node name="Abstractions" expanded="True">
-                <Node name="Services" expanded="True" />
-              </Node>
-              <Node name="DTO" expanded="True" />
-              <Node name="Entities" expanded="True" />
-              <Node name="Validators" expanded="True" />
-            </Node>
             <Node name="Infrastructure" expanded="True">
               <Node name="Dependencies" expanded="True">
                 <Node name="ProjectDependencies" expanded="True" />
-              </Node>
-              <Node name="Repositories" expanded="True" />
-            </Node>
-            <Node name="ProfileData" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
               </Node>
             </Node>
           </Node>
