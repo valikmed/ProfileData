@@ -11,11 +11,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-//using UserProfileApp.Core.Abstractions;
-//using UserProfileApp.Core.Abstractions.Services;
-//using UserProfileApp.Core.Mapping;
-//using UserProfileApp.DAL;
-//using UserProfileApp.Services;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Http.Features;
 using Domain.Abstractions;
@@ -23,6 +18,8 @@ using Domain.Abstractions.Services;
 using Domain.Mapping;
 using Infrastructure;
 using ProfileData.Domain.Abstractions.Services;
+using Application;
+using ProfileData;
 
 namespace UserProfileApp
 {
