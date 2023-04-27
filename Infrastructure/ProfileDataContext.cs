@@ -9,7 +9,7 @@ namespace Application
 {
     public class ProfileDataContext : DbContext
     {
-        private const string connectionString = @"server=localhost; database=ProfileData; Integrated Security=true;";
+        private const string connectionString = @"server=localhost; database=ProfileData; User ID=sa; Password=Yukon900; TrustServerCertificate=true;";
 
 
         public DbSet<User> Users { get; set; }

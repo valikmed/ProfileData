@@ -34,6 +34,10 @@ namespace ProfileData
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connection = Configuration.GetConnectionString("DatabaseConection");
+            services.AddDbContext<ProfileDataContext>(e => e.UseSqlServer(connection));
+
+
             services.AddControllers();
 
 
@@ -69,8 +73,7 @@ namespace ProfileData
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
 
-            var connection = Configuration.GetConnectionString("DatabaseConection");
-            services.AddDbContext<ProfileDataContext>(e => e.UseSqlServer(connection));
+
 
             services.AddScoped<IUserService, UserService>();
 
