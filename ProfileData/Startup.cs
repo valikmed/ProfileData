@@ -21,7 +21,7 @@ using ProfileData.Domain.Abstractions.Services;
 using Application;
 using ProfileData;
 
-namespace UserProfileApp
+namespace ProfileData
 {
     public class Startup
     {

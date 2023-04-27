@@ -9,12 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-//using System.Text;
-//using UserProfileApp.Core.Abstractions;
-//using UserProfileApp.Core.Abstractions.Services;
-//using UserProfileApp.Core.DTO;
-//using UserProfileApp.Core.Entities;
-//using UserProfileApp.Core.Validators;
+
 
 namespace ProfileData
 {

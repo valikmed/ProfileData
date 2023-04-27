@@ -12,12 +12,12 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "UserProfileApp",
+      "launchUrl": "ProfileData",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "UserProfileApp": {
+    "ProfileData": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
