@@ -1,12 +1,14 @@
 ﻿<Properties StartupConfiguration="{BF82F704-79A1-479A-A5C0-BAFEC7489733}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.ProfileData PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/ProfileDataContext.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ProfileData/Startup.cs">
     <Files>
-      <File FileName="ProfileData/Startup.cs" Line="24" Column="22" />
+      <File FileName="ProfileData/Startup.cs" Line="66" Column="44" />
       <File FileName="Domain/Abstractions/Services/IUserService.cs" />
       <File FileName="Domain/Abstractions/Services/IRoleService.cs" />
       <File FileName="Domain/Entities/User.cs" />
@@ -20,22 +22,30 @@
       <File FileName="Domain/DTO/RoleDTO.cs" />
       <File FileName="Domain/Mapping/MappingProfile.cs" />
       <File FileName="Domain/Validators/UserValidator.cs" />
-      <File FileName="Application/UserService.cs" Line="36" Column="1" />
+      <File FileName="Application/UserService.cs" />
       <File FileName="Application/RoleService.cs" />
       <File FileName="Infrastructure/Repositories/UserRepository.cs" />
-      <File FileName="Infrastructure/ProfileDataContext.cs" Line="12" Column="150" />
-      <File FileName="ProfileData/appsettings.json" Line="3" Column="126" />
-      <File FileName="ProfileData/Program.cs" Line="9" Column="18" />
-      <File FileName="Application/AvatarService.cs" Line="38" Column="1" />
-      <File FileName="Domain/Abstractions/Services/IService.cs" Line="10" Column="22" />
-      <File FileName="ProfileData/Controllers/AvatarController.cs" Line="11" Column="1" />
-      <File FileName="ProfileData/Controllers/RoleController.cs" Line="10" Column="1" />
-      <File FileName="ProfileData/Controllers/UserController.cs" Line="29" Column="1" />
-      <File FileName="Infrastructure/Migrations/20230427084707_NewMigration.cs" Line="1" Column="1" />
-      <File FileName="Infrastructure/Migrations/20230427084707_NewMigration.Designer.cs" Line="1" Column="1" />
-      <File FileName="Infrastructure/Migrations/ProfileDataContextModelSnapshot.cs" Line="1" Column="1" />
-      <File FileName="ProfileData/Properties/launchSettings.json" Line="20" Column="17" />
-      <File FileName="ProfileData/appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="Infrastructure/ProfileDataContext.cs" />
+      <File FileName="ProfileData/appsettings.json" />
+      <File FileName="ProfileData/Program.cs" />
+      <File FileName="Application/AvatarService.cs" />
+      <File FileName="Domain/Abstractions/Services/IService.cs" />
+      <File FileName="ProfileData/Controllers/AvatarController.cs" />
+      <File FileName="ProfileData/Controllers/RoleController.cs" />
+      <File FileName="ProfileData/Controllers/UserController.cs" />
+      <File FileName="Infrastructure/Migrations/20230427084707_NewMigration.cs" />
+      <File FileName="Infrastructure/Migrations/20230427084707_NewMigration.Designer.cs" />
+      <File FileName="Infrastructure/Migrations/ProfileDataContextModelSnapshot.cs" />
+      <File FileName="ProfileData/Properties/launchSettings.json" />
+      <File FileName="ProfileData/appsettings.Development.json" />
+      <File FileName="Infrastructure/Migrations/20230427132200_TestData.cs" />
+      <File FileName="Domain/Abstractions/Services/IAvatarService.cs" />
+      <File FileName="Domain/DTO/AvatarDTO.cs" />
+      <File FileName="Domain/Entities/Avatar.cs" />
+      <File FileName="Domain/Entities/IEntity.cs" />
+      <File FileName="Infrastructure/Repositories/AvatarRepository.cs" />
+      <File FileName="Infrastructure/Repositories/Repository.cs" />
+      <File FileName="Domain/Abstractions/Repositories/IAvatarRepository.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -44,26 +54,28 @@
             <Node name="Application" expanded="True" />
             <Node name="Domain" expanded="True">
               <Node name="Abstractions" expanded="True">
+                <Node name="Repositories" expanded="True" />
                 <Node name="Services" expanded="True" />
               </Node>
+              <Node name="DTO" expanded="True" />
+              <Node name="Entities" expanded="True" />
+              <Node name="Mapping" expanded="True" />
+              <Node name="Validators" expanded="True" />
             </Node>
             <Node name="Infrastructure" expanded="True">
               <Node name="Dependencies" expanded="True">
                 <Node name="ProjectDependencies" expanded="True" />
               </Node>
-              <Node name="Migrations" expanded="True" />
-              <Node name="ProfileDataContext.cs" selected="True" />
             </Node>
             <Node name="ProfileData" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Properties" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.ProfileData PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>

@@ -13,5 +13,7 @@ namespace Domain.Entities
         public byte[] Image { get; set; }
         public List<User> Users { get; set; }
 
+
     }
+
 }
