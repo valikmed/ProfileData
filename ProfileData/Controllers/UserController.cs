@@ -73,7 +73,7 @@ namespace ProfileData.Controlers
         }
 
 
-        [HttpDelete("/User/delete/{id}")]
+        [HttpDelete]
         public ActionResult<UserFullInfoDTO> Delete(int id)
         {
 

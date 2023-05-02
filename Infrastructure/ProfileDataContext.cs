@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Infrastructure.EntityConfigurations;
 
 namespace Application
 {
@@ -16,47 +17,17 @@ namespace Application
         public DbSet<Role> Roles { get; set; }
         public DbSet<Avatar> Avatars { get; set; }
 
-        public ProfileDataContext(DbContextOptions options) : base(options)
-        {
-        }
-
-
+        public ProfileDataContext(DbContextOptions options) : base(options) { }
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(connectionString);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Role>()
-                      .Property(b => b.RoleName)
-                      .IsRequired();
-
-            modelBuilder.Entity<User>()
-                   .Property(b => b.FirstName)
-                   .IsRequired();
-            modelBuilder.Entity<User>()
-                   .Property(b => b.LastName)
-                   .IsRequired();
-
-
-
-            modelBuilder.Entity<Role>().HasData(
-                new Role
-                {
-                    ID = 1,
-                    RoleName = "C-Level"
-                },
-                new Role
-                {
-                    ID = 2,
-                    RoleName = "Manager"
-                },
-                new Role
-                {
-                    ID = 3,
-                    RoleName = "Worker"
-                }
-            );
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new AvatarConfiguration());
 
         }
     }

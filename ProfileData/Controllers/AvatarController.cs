@@ -26,6 +26,7 @@ namespace ProfileData.Controlers
         {
             return Ok(_service.GetAll());
         }
+
         [HttpGet("{id}")]
         public ActionResult<AvatarDTO> Get(int id)
         {
@@ -69,7 +70,7 @@ namespace ProfileData.Controlers
         }
 
 
-        [HttpDelete("/Avatar/delete/{id}")]
+        [HttpDelete]
         public ActionResult<AvatarDTO> Delete(int id)
         {
             try

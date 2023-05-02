@@ -59,8 +59,8 @@ namespace ProfileData.Controlers
         {
             try
             {
-                var result = _service.Update(roleDTO);
-                return Ok(result);
+                return Ok(_service.Update(roleDTO));
+
             }
             catch (Exception ex)
             {
