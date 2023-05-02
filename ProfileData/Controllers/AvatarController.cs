@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using Domain.DTO;
@@ -40,36 +41,18 @@ namespace ProfileData.Controlers
         }
 
         [HttpPost, DisableRequestSizeLimit]
-        public IActionResult Upload()
+        public IActionResult Upload(IFormFile file)
         {
             try
             {
-                var file = Request.Form.Files[0];
-                if (file.Length > 0)
-                {
-                    AvatarDTO avatar;
-                    using (MemoryStream stream = new MemoryStream())
-                    {
-                        file.CopyTo(stream);
-                        byte[] imageByteArray = stream.ToArray();
-                        Image image = Image.Load(imageByteArray);
-                        image.Mutate(x => x.Resize(256, 256));
-                        MemoryStream lightStream = new MemoryStream();
-                        image.SaveAsJpeg(lightStream);
-                        avatar = _service.Add(new AvatarDTO { Image = lightStream.ToArray() });
-                    }
-                    return Ok(new { avatar });
-                }
-                else
-                {
-                    return BadRequest();
-                }
+                return Ok(_service.Upload(file));
             }
             catch (Exception ex)
             {
                 return StatusCode(500, $"Internal server error. {ex.Message}");
             }
         }
+
 
 
         [HttpPut]

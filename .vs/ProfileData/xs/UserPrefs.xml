@@ -1,11 +1,9 @@
-﻿<Properties StartupConfiguration="{BF82F704-79A1-479A-A5C0-BAFEC7489733}|Default">
+﻿<Properties StartupConfiguration="{BF82F704-79A1-479A-A5C0-BAFEC7489733}|Default" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.ProfileData PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="ProfileData/Startup.cs">
     <Files>
       <File FileName="ProfileData/Startup.cs" Line="66" Column="44" />

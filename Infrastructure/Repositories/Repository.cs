@@ -36,7 +36,7 @@ namespace Application.Repositories
         public TEntity Add(TEntity entity)
         {
             Context.Set<TEntity>().Add(entity);
-            Context.SaveChanges();
+            Save();
             return entity;
         }
 
@@ -45,15 +45,20 @@ namespace Application.Repositories
             if (Context.Set<TEntity>() != null)
             {
                 Context.Set<TEntity>().Remove(Context.Set<TEntity>().Find(id));
-                Context.SaveChanges();
+                Save();
             }
         }
 
         public TEntity Update(TEntity entity)
         {
             Context.Entry(entity).State = EntityState.Modified;
-            Context.SaveChanges();
+            Save();
             return entity;
+        }
+
+        public void Save()
+        {
+            Context.SaveChanges();
         }
     }
 }

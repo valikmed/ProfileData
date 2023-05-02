@@ -49,11 +49,6 @@ namespace Infrastructure
                 _context = null;
             }
         }
-
-        public void Save()
-        {
-            _context.SaveChanges();
-        }
     }
 }
 

@@ -5,6 +5,7 @@ using Domain.DTO;
 using Domain.Entities;
 using Domain.Validators;
 using FluentValidation;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
