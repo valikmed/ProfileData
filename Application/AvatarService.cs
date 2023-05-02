@@ -5,14 +5,17 @@ using Domain.Abstractions;
 using Domain.DTO;
 using Domain.Entities;
 using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
 using Microsoft.AspNetCore.Http;
 using ProfileData.Domain.Abstractions.Services;
+using static System.Net.Mime.MediaTypeNames;
+using Application;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure
 {
     public class AvatarService : IAvatarService
     {
-        private IAvatarService _service;
         private IMapper _mapper;
         private IUnitOfWork UnitOfWork;
 
@@ -20,12 +23,6 @@ namespace Infrastructure
         {
             _mapper = mapper;
             UnitOfWork = unitOfWork;
-        }
-
-        public AvatarDTO Add(AvatarDTO avatarDTO)
-        {
-            Avatar avatar = UnitOfWork.AvatarRepository.Add(_mapper.Map(avatarDTO, new Avatar()));
-            return _mapper.Map(avatar, new AvatarDTO());
         }
 
         public AvatarDTO Get(int id)
@@ -40,14 +37,23 @@ namespace Infrastructure
                 .Select(item => _mapper.Map(item, new AvatarDTO())).ToList();
         }
 
+        public AvatarDTO Add(AvatarDTO avatarDTO)
+        {
+            Avatar avatar = UnitOfWork.AvatarRepository.Add(_mapper.Map(avatarDTO, new Avatar()));
+            UnitOfWork.Save();
+            return _mapper.Map(avatar, new AvatarDTO());
+        }
+        
         public void Remove(int id)
         {
             UnitOfWork.AvatarRepository.Remove(id);
+            UnitOfWork.Save();
         }
 
         public AvatarDTO Update(AvatarDTO avatarDTO)
         {
             UnitOfWork.AvatarRepository.Update(_mapper.Map(avatarDTO, new Avatar()));
+            UnitOfWork.Save();
             return _mapper.Map(UnitOfWork.AvatarRepository.Get(avatarDTO.ID), new AvatarDTO());
         }
 
@@ -66,8 +72,9 @@ namespace Infrastructure
                         image.Mutate(x => x.Resize(256, 256));
                         MemoryStream lightStream = new MemoryStream();
                         image.SaveAsJpeg(lightStream);
-                        avatar = _service.Add(new AvatarDTO { Image = lightStream.ToArray() });
+                        avatar = Add(new AvatarDTO { Image = lightStream.ToArray() });
                     }
+                    UnitOfWork.Save();
                     return avatar;
                 }
                 else

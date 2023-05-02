@@ -35,17 +35,21 @@ namespace ProfileData
         public RoleDTO Add(RoleDTO roleDTO)
         {
             UnitOfWork.RoleRepository.Add(_mapper.Map(roleDTO, new Role()));
+            UnitOfWork.Save();
             return roleDTO;
         }
 
         public void Remove(int id)
         {
             UnitOfWork.RoleRepository.Remove(id);
+            UnitOfWork.Save();
+
         }
 
         public RoleDTO Update(RoleDTO roleDTO)
         {
             UnitOfWork.RoleRepository.Update(_mapper.Map(roleDTO, new Role()));
+            UnitOfWork.Save();
             return _mapper.Map(UnitOfWork.RoleRepository.Get(roleDTO.ID), new RoleDTO());
         }
     }

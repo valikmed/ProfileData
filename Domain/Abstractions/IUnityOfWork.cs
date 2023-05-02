@@ -8,7 +8,7 @@ namespace Domain.Abstractions
         IUserRepository UserRepository { get; }
         IRoleRepository RoleRepository { get; }
         IAvatarRepository AvatarRepository { get; }
-
+        void Save();
     }
 }
 
