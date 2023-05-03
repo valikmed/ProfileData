@@ -34,6 +34,7 @@ namespace ProfileData
 
         public RoleDTO Add(RoleDTO roleDTO)
         {
+            UnitOfWork.Save();
             UnitOfWork.RoleRepository.Add(_mapper.Map(roleDTO, new Role()));
             return roleDTO;
         }
