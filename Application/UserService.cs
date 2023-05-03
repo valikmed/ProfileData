@@ -50,6 +50,7 @@ namespace ProfileData
         {
             userValidator.ValidateAndThrow(UserDTO);
             UnitOfWork.UserRepository.Add(_mapper.Map(UserDTO, new User()));
+            UnitOfWork.Save();
             return UserDTO;
         }
 
@@ -61,12 +62,14 @@ namespace ProfileData
             {
                 UnitOfWork.AvatarRepository.Remove((int)user.AvatarID);
             }
+            UnitOfWork.Save();
         }
 
         public UserFullInfoDTO Update(UserFullInfoDTO UserDTO)
         {
             userValidator.ValidateAndThrow(UserDTO);
             UnitOfWork.UserRepository.Update(_mapper.Map(UserDTO, new User()));
+            UnitOfWork.Save();
             return _mapper.Map(UnitOfWork.UserRepository.Get(UserDTO.ID), new UserFullInfoDTO());
         }
     }
