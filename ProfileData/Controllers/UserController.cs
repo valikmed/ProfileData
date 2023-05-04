@@ -29,7 +29,7 @@ namespace ProfileData.Controlers
             return Ok(_service.GetAllShortInfo());
         }
         [HttpGet("{id}")]
-        public ActionResult<UserFullInfoDTO> Get(int id)
+        public ActionResult<UserFullInfoDTO> Get(Guid id)
         {
             try
             {
@@ -74,7 +74,7 @@ namespace ProfileData.Controlers
 
 
         [HttpDelete]
-        public ActionResult<UserFullInfoDTO> Delete(int id)
+        public ActionResult<UserFullInfoDTO> Delete(Guid id)
         {
 
             try

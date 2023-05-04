@@ -6,7 +6,7 @@ namespace Domain.DTO
 {
     public class AvatarDTO
     {
-        public int ID { get; set; }
+        public Guid ID { get; set; }
         public byte[] Image { get; set; }
     }
 }

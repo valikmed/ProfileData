@@ -6,7 +6,9 @@ namespace Domain.Abstractions.Services
 {
 	public interface IUserService:IService<UserFullInfoDTO>
 	{
-		public List<UserShortInfoDTO> GetAllShortInfo();
+        void Remove(Guid id);
+        UserFullInfoDTO Get(Guid id);
+        public List<UserShortInfoDTO> GetAllShortInfo();
 	}
 }
 

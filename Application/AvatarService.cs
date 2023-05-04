@@ -25,7 +25,7 @@ namespace Infrastructure
             UnitOfWork = unitOfWork;
         }
 
-        public AvatarDTO Get(int id)
+        public AvatarDTO Get(Guid id)
         {
             var user = UnitOfWork.AvatarRepository.Get(id);
             return _mapper.Map(user, new AvatarDTO());
@@ -44,7 +44,7 @@ namespace Infrastructure
             return _mapper.Map(avatar, new AvatarDTO());
         }
         
-        public void Remove(int id)
+        public void Remove(Guid id)
         {
             UnitOfWork.AvatarRepository.Remove(id);
             UnitOfWork.Save();

@@ -5,11 +5,12 @@ using System.Text;
 
 namespace Domain.Entities
 {
-    public class Avatar : IEntity<int>
+    public class Avatar : IEntity<Guid>
     {
-        public int ID { get; set; }
+        public Guid ID { get; set; }
         public byte[] Image { get; set; }
         public List<User> Users { get; set; }
     }
+
 
 }

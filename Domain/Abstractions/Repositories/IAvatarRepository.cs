@@ -7,6 +7,8 @@ namespace Domain.Abstractions.Repositories
 {
 	public interface IAvatarRepository:IRepository<Avatar>
 	{
-	}
+        Avatar Get(Guid id);
+        void Remove(Guid id);
+    }
 }
 

@@ -17,11 +17,6 @@ namespace Application.Repositories
             Context = context;
         }
 
-        public TEntity Get(int id)
-        {
-            return Context.Set<TEntity>().Find(id);
-        }
-
         public IQueryable<TEntity> GetAll()
         {
             return Context.Set<TEntity>();
@@ -37,14 +32,6 @@ namespace Application.Repositories
         {
             Context.Set<TEntity>().Add(entity);
             return entity;
-        }
-
-        public void Remove(int id)
-        {
-            if (Context.Set<TEntity>() != null)
-            {
-                Context.Set<TEntity>().Remove(Context.Set<TEntity>().Find(id));
-            }
         }
 
         public TEntity Update(TEntity entity)

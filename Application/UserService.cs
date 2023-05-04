@@ -7,6 +7,7 @@ using Domain.Validators;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +41,7 @@ namespace ProfileData
                 .ToList();
         }
 
-        public UserFullInfoDTO Get(int id)
+        public UserFullInfoDTO Get(Guid id)
         {
             var user = UnitOfWork.UserRepository.Get(id);
             return _mapper.Map(user, new UserFullInfoDTO());
@@ -53,17 +54,18 @@ namespace ProfileData
             UnitOfWork.Save();
             return UserDTO;
         }
-
-        public void Remove(int id)
+        public void Remove(Guid id)
         {
             User user = UnitOfWork.UserRepository.Get(id);
             UnitOfWork.UserRepository.Remove(user.ID);
             if (user.AvatarID != null)
             {
-                UnitOfWork.AvatarRepository.Remove((int)user.AvatarID);
+                UnitOfWork.AvatarRepository.Remove((Guid)user.AvatarID);
             }
             UnitOfWork.Save();
         }
+
+
 
         public UserFullInfoDTO Update(UserFullInfoDTO UserDTO)
         {

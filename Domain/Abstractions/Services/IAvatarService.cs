@@ -11,6 +11,8 @@ namespace ProfileData.Domain.Abstractions.Services
 {
     public interface IAvatarService : IService<AvatarDTO>
     {
+        void Remove(Guid id);
+        AvatarDTO Get(Guid id);
         AvatarDTO Upload(IFormFile file);
     }
 }

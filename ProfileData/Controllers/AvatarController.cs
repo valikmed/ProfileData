@@ -28,7 +28,7 @@ namespace ProfileData.Controlers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<AvatarDTO> Get(int id)
+        public ActionResult<AvatarDTO> Get(Guid id)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace ProfileData.Controlers
 
 
         [HttpDelete]
-        public ActionResult<AvatarDTO> Delete(int id)
+        public ActionResult<AvatarDTO> Delete(Guid id)
         {
             try
             {

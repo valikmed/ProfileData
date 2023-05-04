@@ -4,10 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities
 {
-    public class User : IEntity<int>
+    public class User : IEntity<Guid>
     {
         [Key]
-        public int ID { get; set; }
+        public Guid ID { get; set; }
 
         [Required, MaxLength(50)]
         public string FirstName { get; set; }
@@ -23,7 +23,7 @@ namespace Domain.Entities
         public string? Description { get; set; }
 
         [ForeignKey("Avatar")]
-        public int? AvatarID { get; set; }
+        public Guid? AvatarID { get; set; }
 #nullable enable
         public Avatar? Avatar { get; set; }
 

@@ -13,13 +13,9 @@ namespace ProfileData.Domain.Abstractions.Services
     {
         public List<TEntity> GetAll();
 
-        public TEntity Get(int id);
-
         public TEntity Add(TEntity entity);
 
         public TEntity Update(TEntity entity);
-
-        public void Remove(int id);
 
     }
 }

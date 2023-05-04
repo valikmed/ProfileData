@@ -3,7 +3,7 @@ namespace Domain.DTO
 {
     public class UserFullInfoDTO
     {
-        public int ID { get; set; }
+        public Guid ID { get; set; }
 
         public string FirstName { get; set; }
 
@@ -16,7 +16,7 @@ namespace Domain.DTO
 #nullable enable
         public string? Description { get; set; }
 #nullable enable
-        public int? AvatarID { get; set; }
+        public Guid? AvatarID { get; set; }
         public int RoleID { get; set; }
 
     }
