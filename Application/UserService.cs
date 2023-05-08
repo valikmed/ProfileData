@@ -58,9 +58,9 @@ namespace ProfileData
         {
             User user = UnitOfWork.UserRepository.Get(id);
             UnitOfWork.UserRepository.Remove(user.ID);
-            if (user.AvatarID != null)
+            if (user.AvatarID.HasValue)
             {
-                UnitOfWork.AvatarRepository.Remove((Guid)user.AvatarID);
+                UnitOfWork.AvatarRepository.Remove(user.AvatarID.Value);
             }
             UnitOfWork.Save();
         }

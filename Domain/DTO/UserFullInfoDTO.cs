@@ -14,7 +14,7 @@ namespace Domain.DTO
         public DateTime BirthDate { get; set; }
 
 #nullable enable
-        public string? Description { get; set; }
+        public string Description { get; set; }
 #nullable enable
         public Guid? AvatarID { get; set; }
         public int RoleID { get; set; }

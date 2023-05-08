@@ -20,7 +20,7 @@ namespace Domain.Entities
 
         [MaxLength(1024)]
 #nullable enable
-        public string? Description { get; set; }
+        public string Description { get; set; }
 
         [ForeignKey("Avatar")]
         public Guid? AvatarID { get; set; }
@@ -31,6 +31,10 @@ namespace Domain.Entities
         public int RoleID { get; set; }
 #nullable disable
         public Role Role { get; set; }
+
+        public string Login { get; set; }
+
+        public string Password { get; set; }
 
         public static int GetAge(DateTime dateOfBirth)
         {
