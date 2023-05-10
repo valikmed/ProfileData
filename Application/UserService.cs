@@ -47,13 +47,13 @@ namespace ProfileData
             return _mapper.Map(user, new UserFullInfoDTO());
         }
 
-        public UserFullInfoDTO Add(UserFullInfoDTO UserDTO)
-        {
-            userValidator.ValidateAndThrow(UserDTO);
-            UnitOfWork.UserRepository.Add(_mapper.Map(UserDTO, new User()));
-            UnitOfWork.Save();
-            return UserDTO;
-        }
+        //public UserFullInfoDTO Add(UserFullInfoDTO UserDTO)
+        //{
+        //    userValidator.ValidateAndThrow(UserDTO);
+        //    UnitOfWork.UserRepository.Add(_mapper.Map(UserDTO, new User()));
+        //    UnitOfWork.Save();
+        //    return UserDTO;
+        //}
         public void Remove(Guid id)
         {
             User user = UnitOfWork.UserRepository.Get(id);
@@ -73,6 +73,23 @@ namespace ProfileData
             UnitOfWork.UserRepository.Update(_mapper.Map(UserDTO, new User()));
             UnitOfWork.Save();
             return _mapper.Map(UnitOfWork.UserRepository.Get(UserDTO.ID), new UserFullInfoDTO());
+        }
+        public UserFullInfoDTO Add(UserFullInfoDTO userDTO, string hashedPassword)
+        {
+            userDTO.HashedPassword = hashedPassword;
+            userValidator.ValidateAndThrow(userDTO);
+            UnitOfWork.UserRepository.Add(_mapper.Map(userDTO, new User()));
+            UnitOfWork.Save();
+            return userDTO;
+        }
+
+        public void SaveUsernameAndPassword(Guid id, string username, string hashedPassword)
+        {
+            User user = UnitOfWork.UserRepository.Get(id);
+            user.Username = username;
+            user.HashedPassword = hashedPassword;
+            UnitOfWork.UserRepository.Update(user);
+            UnitOfWork.Save();
         }
     }
 }

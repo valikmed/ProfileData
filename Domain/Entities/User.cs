@@ -32,9 +32,11 @@ namespace Domain.Entities
 #nullable disable
         public Role Role { get; set; }
 
-        public string Login { get; set; }
+        [Required, MaxLength(50)]
+        public string Username { get; set; }
 
-        public string Password { get; set; }
+        [Required, MaxLength(50)]
+        public string HashedPassword { get; set; }
 
         public static int GetAge(DateTime dateOfBirth)
         {

@@ -20,6 +20,11 @@ using Infrastructure;
 using ProfileData.Domain.Abstractions.Services;
 using Application;
 using ProfileData;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.IdentityModel.Tokens;
+using Infrastructure.Authorization;
 
 namespace ProfileData
 {
@@ -59,17 +64,82 @@ namespace ProfileData
                 o.MultipartBodyLengthLimit = int.MaxValue;
                 o.MemoryBufferThreshold = int.MaxValue;
             });
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ControllerAccessPolicy", policy =>
+                {
+                    policy.RequireAuthenticatedUser()
+                          .RequireClaim("role", "C-Level");
+                });
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
+
+                // Тут добавляється конфігурація з Авторизацією
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT", // Формат нашого токена
+                    In = ParameterLocation.Header, // Кажемо що наш токен буде весь час в Хедері
+                    Description = "JWT Authorization header using the Bearer scheme."
+                });
+
+                // Тут створюється схема - як виглядає токен зсередини
+                var securityScheme = new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference
+                    {
+                        Id = "Bearer",
+                        Type = ReferenceType.SecurityScheme
+                    }
+                };
+
+                // Тут добавляється створена вище схема до свагера через requirements об'єкт
+                // - Викликається c.AddSecurityRequrement(І тут наш об'єкт requirements)
+                var requirements = new OpenApiSecurityRequirement();
+                requirements.Add(securityScheme, new List<string>());
+                c.AddSecurityRequirement(requirements);
             });
 
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());
             });
+
+
+            // Добавити авторизацію для ендпоінтів
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options => // Кажемо що добавлямо `Bearier` токен (В хедерах запитів)
+                {
+                    // Чи відправляти дані лише по HTTPS (Бажано поставити true)
+                    // false - зазвичай для тестування ставлять
+                    options.RequireHttpsMetadata = false;
+
+                    // Задаємо параметри валідації.
+                    // Там ми будемо читати деякі параметри з констант классу `AuthOptions`
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true, // Чи буде перевірятись дата придатності
+                        ValidateIssuerSigningKey = true,
+
+                        // Настроюємо Автора токенів та користувача. Дані беремо з `AuthOptions` класу
+                        ValidIssuer = AuthOptions.ISSUER,
+                        ValidAudience = AuthOptions.AUDIENCE,
+
+                        // Ключ безпеки. Беремо симетричну верісію з нашого `AuthOptions` класу
+                        IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey()
+
+                    };
+
+                });
+
 
 
             IMapper mapper = mappingConfig.CreateMapper();

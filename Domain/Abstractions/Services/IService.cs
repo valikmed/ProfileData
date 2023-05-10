@@ -13,8 +13,6 @@ namespace ProfileData.Domain.Abstractions.Services
     {
         public List<TEntity> GetAll();
 
-        public TEntity Add(TEntity entity);
-
         public TEntity Update(TEntity entity);
 
     }

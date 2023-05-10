@@ -28,6 +28,14 @@ namespace Infrastructure.EntityConfigurations
             builder.Property(u => u.Description)
                 .HasMaxLength(1024);
 
+            builder.Property(u => u.Username)
+                  .IsRequired()
+                  .HasMaxLength(50);
+
+            builder.Property(u => u.HashedPassword)
+                .IsRequired()
+                .HasMaxLength(50);
+
             builder.HasOne(u => u.Avatar)
                 .WithMany()
                 .HasForeignKey(u => u.AvatarID)

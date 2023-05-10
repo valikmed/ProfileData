@@ -19,6 +19,8 @@ namespace Domain.DTO
         public Guid? AvatarID { get; set; }
         public int RoleID { get; set; }
 
+        public string Username { get; set; }
+        public string HashedPassword { get; set; }
     }
 }
 

@@ -9,7 +9,7 @@ namespace Domain.Abstractions.Services
     {
         public RoleDTO Get(int id);
         public void Remove(int id);
-
+        public RoleDTO Add(RoleDTO roleDTO);
     }
 }
 

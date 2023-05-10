@@ -14,5 +14,6 @@ namespace ProfileData.Domain.Abstractions.Services
         void Remove(Guid id);
         AvatarDTO Get(Guid id);
         AvatarDTO Upload(IFormFile file);
+        public AvatarDTO Add(AvatarDTO avatarDTO);
     }
 }

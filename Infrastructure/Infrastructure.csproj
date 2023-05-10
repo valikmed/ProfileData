@@ -23,8 +23,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Entity Configurations\" />
+    <None Remove="Authorization\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entity Configurations\" />
+    <Folder Include="Authorization\" />
   </ItemGroup>
 </Project>
