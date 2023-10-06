@@ -10,7 +10,7 @@ namespace Application
 {
     public class ProfileDataContext : DbContext
     {
-        private const string connectionString = @"server=localhost; database=ProfileData; User ID=sa; Password=Yukon900; TrustServerCertificate=true;";
+        // private const string connectionString = @"server=localhost; database=ProfileData; User ID=sa; Password=Yukon900; TrustServerCertificate=true;";
 
 
         public DbSet<User> Users { get; set; }
@@ -21,7 +21,7 @@ namespace Application
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseSqlServer("DatabaseConection");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -78,18 +78,16 @@ namespace ProfileData
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
 
-                // Тут добавляється конфігурація з Авторизацією
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                 {
                     Name = "Authorization",
                     Type = SecuritySchemeType.ApiKey,
                     Scheme = "Bearer",
-                    BearerFormat = "JWT", // Формат нашого токена
-                    In = ParameterLocation.Header, // Кажемо що наш токен буде весь час в Хедері
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header, 
                     Description = "JWT Authorization header using the Bearer scheme."
                 });
 
-                // Тут створюється схема - як виглядає токен зсередини
                 var securityScheme = new OpenApiSecurityScheme
                 {
                     Reference = new OpenApiReference
@@ -99,8 +97,6 @@ namespace ProfileData
                     }
                 };
 
-                // Тут добавляється створена вище схема до свагера через requirements об'єкт
-                // - Викликається c.AddSecurityRequrement(І тут наш об'єкт requirements)
                 var requirements = new OpenApiSecurityRequirement();
                 requirements.Add(securityScheme, new List<string>());
                 c.AddSecurityRequirement(requirements);
@@ -112,28 +108,21 @@ namespace ProfileData
             });
 
 
-            // Добавити авторизацію для ендпоінтів
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options => // Кажемо що добавлямо `Bearier` токен (В хедерах запитів)
+                .AddJwtBearer(options => 
                 {
-                    // Чи відправляти дані лише по HTTPS (Бажано поставити true)
-                    // false - зазвичай для тестування ставлять
                     options.RequireHttpsMetadata = false;
 
-                    // Задаємо параметри валідації.
-                    // Там ми будемо читати деякі параметри з констант классу `AuthOptions`
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuer = true,
                         ValidateAudience = true,
-                        ValidateLifetime = true, // Чи буде перевірятись дата придатності
+                        ValidateLifetime = true, 
                         ValidateIssuerSigningKey = true,
 
-                        // Настроюємо Автора токенів та користувача. Дані беремо з `AuthOptions` класу
                         ValidIssuer = AuthOptions.ISSUER,
                         ValidAudience = AuthOptions.AUDIENCE,
 
-                        // Ключ безпеки. Беремо симетричну верісію з нашого `AuthOptions` класу
                         IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey()
 
                     };
@@ -156,14 +145,11 @@ namespace ProfileData
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseSwagger();
 
 
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-            // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
